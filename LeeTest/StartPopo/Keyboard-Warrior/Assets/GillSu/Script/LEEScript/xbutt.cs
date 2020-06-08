@@ -11,7 +11,6 @@ public class xbutt : MonoBehaviour
     void XCheck(PointerEventData eventData)
     {
         Destroy(obj);
-
     }
 
     // Start is called before the first frame update

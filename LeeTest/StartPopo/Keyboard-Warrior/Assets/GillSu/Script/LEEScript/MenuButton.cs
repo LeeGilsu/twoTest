@@ -10,6 +10,7 @@ public class MenuButton : MonoBehaviour
     public MouseEvent m_mouse = null;
     public GameObject m_image = null;
     public Transform m_cavas;
+
     Vector2 rvec = new Vector2(1, 1);
     public enum STATE
     {
@@ -47,7 +48,6 @@ public class MenuButton : MonoBehaviour
             case STATE.CREATE:
                 break;
             case STATE.MOVE:
-                
                 StartCoroutine(SizeChange(STATE.STOP, 2f, 10f));
                 ChangeState(STATE.STOP);
                 break;
@@ -66,13 +66,14 @@ public class MenuButton : MonoBehaviour
     }
     void escbutton()
     {
-        if (GameObject.Find("Image") == null)
+        if (GameObject.Find("Image") != null)
         {
-            EscBar();
+            Debug.Log("삭제");
+            Destroy(gameObject);
         }
         else
         {
-            Destroy(this);
+            EscBar();
         }
     }
     public void EscBar()
@@ -87,6 +88,7 @@ public class MenuButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      
         m_State = STATE.CREATE;
         m_mouse.m_MouseOverEvent += OnOver;
         m_mouse.m_MouseClickEvent += OnClick;

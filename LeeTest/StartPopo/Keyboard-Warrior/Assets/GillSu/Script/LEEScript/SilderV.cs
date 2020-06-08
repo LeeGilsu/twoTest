@@ -7,9 +7,11 @@ public class SilderV : MonoBehaviour
 {
     [SerializeField]
     private Slider m_Slider;
+   // Vector2 barSize = new Vector2(Screen.width, 0);
     // Start is called before the first frame update
     void Start()
     {
+        //transform.GetComponent<RectTransform>().sizeDelta = barSize;
         SceneLoad.I.GetSliderValue();
         StartCoroutine(StartSlider());
     }
